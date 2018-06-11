@@ -79,6 +79,7 @@ Open VS Code user setting by pressing `CTRL+,` and set the following as you need
 ## Note
 
 * The LiveReload extension only works with default port 35729.
+* Web pages must be served locally. For remote pages, you can use something like http://livejs.com instead.
 
 ## License
 
