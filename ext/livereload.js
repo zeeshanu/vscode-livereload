@@ -763,7 +763,7 @@
                         }
                     }
                     if (options.liveCSS) {
-                        if (path.match(/\.css$/i)) {
+                        if (path.match(/\.(css|scss)$/i)) {
                             if (this.reloadStylesheet(path)) {
                                 return;
                             }
