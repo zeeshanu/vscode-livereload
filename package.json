@@ -10,7 +10,7 @@
     "url": "https://github.com/ziishaned"
   },
   "engines": {
-    "vscode": "^1.17.0"
+    "vscode": "^1.37.0"
   },
   "galleryBanner": {
     "color": "#2d4794",
@@ -103,22 +103,25 @@
     "url": "https://github.com/ziishaned/vscode-livereload.git"
   },
   "scripts": {
-    "vscode:prepublish": "tsc -p ./",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
+    "vscode:prepublish": "npm run compile",
+    "compile": "scripts/build.sh",
+    "package": "vsce package --yarn",
+    "watch": "tsc -w -p ./",
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
-    "@types/node": "^7.0.43",
+    "@types/node": "^12.0.0",
+    "@types/vscode": "1.37.0",
+    "@types/ws": "^7.2.9",
+    "@vercel/ncc": "^0.24.1",
     "tslint": "^5.7.0",
-    "typescript": "^2.5.3",
-    "vscode": "^1.1.5"
+    "typescript": "3.7.2",
+    "vsce": "1.69.0"
   },
   "dependencies": {
-    "chokidar": "^1.7.0",
-    "lodash": "^4.17.4",
-    "ws": "^1.1.1"
+    "chokidar": "3.4.3",
+    "lodash": "4.17.20",
+    "ws": "7.3.1"
   }
 }
