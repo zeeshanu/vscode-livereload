@@ -1,4 +1,6 @@
+.DS_Store
 out
 node_modules
 .vscode-test/
-.vsix
+*.vsix
+*.log
