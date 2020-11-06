@@ -15,7 +15,7 @@ export default class Server extends EventEmitter {
 	private path: string[];
 	private config;
 	private server;
-	private wsServer;
+	private wsServer: ws.Server;
 	private watcher;
 
 	constructor(config) {
@@ -174,18 +174,19 @@ export default class Server extends EventEmitter {
 	}
 
 	private sendAllClients(data) {
-		let ref = this.wsServer.clients;
 		let results = [];
-		for (let i = 0, len = ref.length; i < len; i++) {
-			let socket = ref[i];
-			results.push(socket.send(data, (() => {
+
+		// Broadcast to all clients
+		this.wsServer.clients.forEach((client) => {
+			results.push(client.send(data, (() => {
 				return (error) => {
 					if (error) {
 						return console.error(error);
 					}
 				};
 			})));
-		}
+		});
+
 		return results;
 	}
 

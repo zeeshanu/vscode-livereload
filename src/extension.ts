@@ -1,5 +1,3 @@
-'use strict';
-
 import LiveReload from './LiveReload';
 import { ExtensionContext, commands, window } from 'vscode';
 
